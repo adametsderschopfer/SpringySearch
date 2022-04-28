@@ -90,8 +90,14 @@ class SpringySearch
         case 'й':
           newSearchText += '[и|й]';
           break;
-        default:
+        default: {
+          if (searchText[i].match(/[^a-zA-Z0-9.]/g)) {
+            newSearchText += `\\${searchText[i]}`;
+            break;
+          }
+          
           newSearchText += searchText[i];
+        }
       }
     }
 
