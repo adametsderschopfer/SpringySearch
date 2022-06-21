@@ -131,7 +131,7 @@ class SpringySearch
           break;
         }
 
-        value = value.toLowerCase();
+        value = value.toLowerCase().trim().replace(' ', '');;
         const regexValue = this.createDynamicWordString(value);
 
         if (regexValue && (new RegExp(regexValue, 'i')).test(searchString)) {
